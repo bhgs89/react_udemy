@@ -1,26 +1,26 @@
-import React from "react";
-import SearchBar from "./SearchBar";
-import VideoList from "./VideoList";
-import VideoDetail from "./VideoDetail";
-import youtube from "../apis/youtube";
+import React from 'react';
+import SearchBar from './SearchBar';
+import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
+import youtube from '../apis/youtube';
 
 class App extends React.Component {
   state = { videos: [], selectedVideo: null };
 
   componentDidMount() {
-    this.onTermSubmit("buildings");
+    this.onTermSubmit('buildings');
   }
 
   onTermSubmit = async term => {
-    const response = await youtube.get("/search", {
+    const response = await youtube.get('/search', {
       params: {
-        q: term
-      }
+        q: term,
+      },
     });
 
     this.setState({
       videos: response.data.items,
-      selectedVideo: response.data.items[0]
+      selectedVideo: response.data.items[0],
     });
   };
 
@@ -41,6 +41,8 @@ class App extends React.Component {
               <VideoList
                 onVideoSelect={this.onVideoSelect}
                 videos={this.state.videos}
+                game={this.state.videos}
+                money={this.onVideoSelect}
               />
             </div>
           </div>
