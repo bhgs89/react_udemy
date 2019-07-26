@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux';
+import postsReducer from './postsReducer';
+import usersReducer from './usersReducer';
 
 export default combineReducers({
-  rePlaceMe: () => 'hi ther',
+  posts: postsReducer,
+  users: usersReducer,
 });

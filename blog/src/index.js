@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
+// 왜 reduxers를 다 포함하는가
 const store = createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
